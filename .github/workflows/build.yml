@@ -15,17 +15,12 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      - name: Free Disk Space
-        uses: jlubroso/free-disk-space@main
-        with:
-          tool-cache: false
-          android: true
-
       - name: Build Android APK
         uses: game-ci/unity-builder@v4
         env:
           UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-         
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
           targetPlatform: Android
           customParameters: -activate License -manualLicenseFile unity-license.ulf
 
