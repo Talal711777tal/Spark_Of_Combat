@@ -28,7 +28,7 @@ jobs:
           UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
         with:
           targetPlatform: Android
-          buildMethod: BuildScript.BuildAndroid
+          customParameters: -activate License -manualLicenseFile unity-license.ulf
 
       - name: Upload APK Artifact
         uses: actions/upload-artifact@v4
